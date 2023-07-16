@@ -6,11 +6,35 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class ="container">
+        <h1>LOGO</h1>
+
+        <div class="collapse navbar-collapse"
+                id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+           <% if admin_signed_in? %>
+           <% else %>
+           <li>
+             <%= link_to "About", homes_about_path %>
+           </li>
+           <li>
+             商品一覧
+           </li>
+           <li>
+             <%= link_to "新規登録", new_admin_session_path %>
+           </li>
+           <li>
+             <%= link_to "ログイン", admin_session_path %>
+           </li>
+           <% end %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
