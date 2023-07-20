@@ -28,7 +28,7 @@
                ジャンル一覧
            </li>
            <li>
-               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete　%>
+               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
            </li>
            <% elsif customer_signed_in? %>
            <li>
@@ -41,7 +41,7 @@
                カート
            </li>
            <li>
-               ログアウト
+               <%= link_to "ログアウト", customer_registration_path, method: :delete %>
            </li>
            <% else %>
            <li>
@@ -51,7 +51,7 @@
              商品一覧
            </li>
            <li>
-             <%= link_to "新規登録", new_admin_session_path %>
+             <%= link_to "新規登録", new_customer_registration_path %>
            </li>
            <li>
              <%= link_to "ログイン", admin_session_path %>
