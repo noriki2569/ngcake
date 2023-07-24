@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     get 'customers/edit' => 'customers#edit'
     patch 'customers/update' => 'customers#update'
   end
-  
+
   namespace :admin do
      root to: 'homes#top'
   end
-  
+
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
