@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :customer_starte, only: [:create]
+  before_action :customer_state, only: [:create]
 
   def after_sign_in_path_for(resource)
     root_path
@@ -29,8 +29,7 @@ class Public::SessionsController < Devise::SessionsController
    def customer_state
      @customer = Customer.find_by(email: params[:customer][:email])
      return if !@customer
-     if @customer.valid_password?(params[:customer][:password]
-       is_deleted true && !false
+     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
        redirect_to new_customer_registration_path
      end
    end

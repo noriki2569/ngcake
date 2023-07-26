@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'customers/show' => 'customers#show'
     get 'customers/edit' => 'customers#edit'
     patch 'customers/update' => 'customers#update'
+    get "customers/confirmation" => 'customers#confirmation'
+    patch "customers/withdrawal" => 'customers#withdrawal'
   end
 
   namespace :admin do
