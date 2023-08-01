@@ -3,21 +3,27 @@
     <div class="col-md">
       <h3>商品一覧</h3>
     </div>
+    <div class="col-md">
+      <%= link_to new_admin_item_path, class:"btn btn-outline-secondary btn-block" do %>
+      <i class="fa-light fa-circle-plus"></i>
+      <% end %>
+    </div>
   </div>
   <div class="row">
     <div class="col-md">
-      <table>
+      <table class="table table-hover table-inverse">
         <thead>
-          <tr>商品ID</tr>
-          <tr>商品名</tr>
-          <tr>税抜価格</tr>
+          <tr>
+            <td>商品ID</td>
+            <td>商品名</td>
+            <td>税抜価格</td>
+          </tr>
         </thead>
-
         <tbody>
-          <%= @items.each do |item| %>
+          <% @items.each do |item| %>
           <tr>
             <td>
-              <%= @items.id %>
+              <%= item.id %>
             </td>
             <td>
               <%= link_to item.name, admin_item_path(item.id) %>
