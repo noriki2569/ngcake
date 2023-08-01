@@ -16,7 +16,7 @@
         <h1>LOGO</h1>
            <% if admin_signed_in? %>
            <li>
-               商品一覧
+               <%= link_to "商品一覧", admin_items_path, :class => "btn btn-outline-dark" %>
            </li>
            <li>
                会員一覧
