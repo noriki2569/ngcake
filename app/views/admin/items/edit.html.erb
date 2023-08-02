@@ -22,7 +22,7 @@
         <%= item.label :price, "税抜価格" %>
         <%= item.text_field :price %> 円
       </div>
-      <%= link_to "変更を保存", admin_item_path(@item.id), :class => "btn btn-success" %>
+      <%= item.submit "変更を保存する" %>
     <% end %>
   </div>
 </div>
