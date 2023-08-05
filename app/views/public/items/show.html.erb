@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-md">
-      写真
+    <div class="col-md-3">
+      <h3>ジャンル検索</h3>
     </div>
-    <div class="col-md">
-      商品名
-      金額
-      個数選択　カートに入れる
+    <div class="col-md-3 offset-md-1">
+      <%= image_tag @item.image, size: "250x250" %>
+    </div>
+    <div class="col-md-4 offset-md-1">
+      <strong>
+        <%= @item.name %>
+      </strong></br>
+      <%= @item.introduction %></br>
+      <%= @item.add_tax_price.to_s(:delimited) %>円
+      <%= form_with model: @cart_items, url: cart_items_path, method: :post do |f| %>
+      <%= f.select :amount, [*(1..10)] %>
+      <%= f.submit "カートに入れる", :class => "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row justify-content-ligth">
+    <h3>会員一覧</h3>
+  </div>
+  <div class="row justify-content-center">
+    <table class="table-hover table-inverse">
+      <thead>
+        <tr>
+          <td>会員ID</td>
+          <td>氏名</td>
+          <td>メールアドレス</td>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td>
+            <%= customer.id %>
+          </td>
+          <td>
+            <%= link_to customer.last_name+customer.first_name, admin_customer_path(customer.id) %>
+          </td>
+          <td>
+            <%= customer.address %>
+          </td>
+          <td>
+            <% if customer.is_deleted == true %>
+            退会
+            <% else %>
+            有効
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

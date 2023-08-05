@@ -17,7 +17,7 @@
         <h1>LOGO</h1>
            <% if admin_signed_in? %>
            <li>
-               <%= link_to "商品一覧", admin_items_path, :class => "btn btn-outline-dark" %>
+               <%= link_to "商品一覧", admin_items_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
                会員一覧
@@ -29,33 +29,33 @@
                ジャンル一覧
            </li>
            <li>
-               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <% elsif customer_signed_in? %>
            <li>
-               <%= link_to "マイページ", customers_show_path %>
+               <%= link_to "マイページ", customers_show_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
-               商品一覧
+               <%= link_to "商品一覧", items_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
                カート
            </li>
            <li>
-               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <% else %>
            <li>
-             <%= link_to "About", about_path %>
+             <%= link_to "About", about_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
-             商品一覧
+             <%= link_to "商品一覧", items_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
-             <%= link_to "新規登録", new_customer_registration_path %>
+             <%= link_to "新規登録", new_customer_registration_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <li>
-             <%= link_to "ログイン", new_customer_session_path %>
+             <%= link_to "ログイン", new_customer_session_path, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <% end %>
       </div>

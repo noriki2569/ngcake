@@ -1,7 +1,17 @@
 <div class="container">
   <div class="row">
-    <div clas="col-md">
-      <strong>商品一覧</strong>
+    <div class="col-3">
+      <h3>ジャンル検索</h3>
     </div>
+    <strong>商品一覧</strong>
+    <% @items.each do |item| %>
+    <div class="col-4">
+      <%= link_to item_path(item.id) do %>
+      <%= image_tag item.image, size: "150x150" %>
+      <% end %></br>
+      <%= item.name %></br>
+      <%= item.price %>
+    </div>
+    <% end %>
   </div>
 </div>
