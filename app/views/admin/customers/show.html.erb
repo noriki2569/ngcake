@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row justify-content-left">
+    <div class="bg-light-subtle">
+      <font size="5">
+        <%= @customer.last_name+@customer.first_name %>さんの会員紹介
+      </font>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>会員ID</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.id %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>氏名</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.last_name+@customer.first_name %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>フリガナ</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.last_name_kana+@customer.first_name_kana %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>郵便番号</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.postal_code %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>住所</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.address %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>電話番号</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.telephone_number %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>メールアドレス</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.email %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>会員ステータス</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <% if @customer.is_deleted == true %>
+      <font size="4">退会</font>
+      <% else %>
+      <font size="4" color="success">有効</font>
+      <% end %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <font size="4">
+       <%= link_to "編集する", edit_admin_customer_path, :class => "btn btn-success" %>
+      </font>
+    </div>
+    <div class="col-7">
+      <font size="4">
+        <p>注文履歴一覧を見る</p>
+      </font>
+    </div>
+  </div>
+</div>

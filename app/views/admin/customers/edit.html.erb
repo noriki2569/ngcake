@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="row justify-content-left">
+    <div class="bg-light-subtle">
+      <font size="5">
+        <%= @customer.last_name+@customer.first_name %>さんの会員情報編集
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>会員ID</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= @customer.id %>
+      </font>
+    </div>
+  </div>
+
+  <%= form_with model: @customer, url: edit_admin_customer_path, method: :patch do |customer| %>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>氏名</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :last_name %><%= customer.text_field :first_name %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>フリガナ</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :last_name_kana %><%= customer.text_field :first_name_kana %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>郵便番号</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :postal_code %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>住所</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :address %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>電話番号</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :telephone_number %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>メールアドレス</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <font size="4">
+        <%= customer.text_field :email %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <font size="4">
+        <p>会員ステータス</p>
+      </font>
+    </div>
+    <div class="col-9">
+      <%= customer.radio_button :is_deleted, true %>
+      <%= customer.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+    　<%= customer.radio_button :is_deleted, false %>
+    　<%= customer.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+      </font>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+   <%= customer.submit "変更を保存", :class => "btn btn-success" %>
+  </div>
+  <% end %>
+</div>
