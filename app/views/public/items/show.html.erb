@@ -12,7 +12,7 @@
       </strong></br>
       <%= @item.introduction %></br>
       <%= @item.add_tax_price.to_s(:delimited) %>円
-      <%= form_with model: @cart_items, url: cart_items_path, method: :post do |f| %>
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
       <%= f.select :amount, [*(1..10)] %>
       <%= f.submit "カートに入れる", :class => "btn btn-success" %>
       <% end %>
