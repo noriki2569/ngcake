@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @item = Item.all
+    @cart_items = current_customer.cart_items
   end
 
   def update
@@ -16,9 +16,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-     @cart_item= current_customer.cart_items.new(cart_item_params)
-     @item = Item.find(params[:item_id])
-     @cart_items.item_id = @item.id
+     @cart_item = current_customer.cart_items.new(cart_item_params)
      if @cart_item.save
       redirect_to cart_items_path
      else
