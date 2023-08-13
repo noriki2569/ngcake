@@ -42,6 +42,7 @@
             <%= f.submit "変更", :class => "btn btn-success" %>
             <% end %>
           </td>
+          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
         </tr>
         <% end %>
       </tbody>
