@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'order/new'
+    get 'order/index'
+    get 'order/show'
+  end
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
@@ -9,8 +14,8 @@ Rails.application.routes.draw do
     get "customers/confirmation" => 'customers#confirmation'
     patch "customers/withdrawal" => 'customers#withdrawal'
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "cart_items/destroy_all" => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index, :update, :create, :destroy]
   end
 
   namespace :admin do
