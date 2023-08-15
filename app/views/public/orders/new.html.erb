@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-left">
+    <font size="5">
+      <p>注文情報入力</p>
+    </font>
+  </div>
+
+  <div class="row justify-content-left">
+    <font size="5">
+      <p>支払方法</p>
+    </font>
+  </div>
+  <%= form_with model: @order, url: orders_confirm_path do |f| %>
+  <div class="row justify-content-left">
+    <%= f.radio_button :payment_method, "credit_card", checked: "checked" %>
+    <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+  </div>
+  <div class="row justify-content-left">
+    <%= f.radio_button :payment_method, "transfer" %>
+    <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
+  </div>
+
+  <div class="row justify-content-left">
+    <font size="5">
+      <p>お届け先</p>
+    </font>
+  </div>
+  <div class="row justify-content-left">
+    <%= f.radio_button :address, :ご自身の住所, checked: "checked" %>
+    <%= f.label :ご自身の住所　%>
+  </div>
+  <div class="row justify-content-left">
+    〒<%= @customer.postal_code %> <%= @customer.address %></br>
+    <%= @customer.last_name + @customer.first_name %>
+  </div>
+  <div class="row justify-content-center">
+    <%= f.submit "確認画面へ進む", :class => "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

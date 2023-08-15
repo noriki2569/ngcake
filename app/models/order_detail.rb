@@ -1,3 +1,3 @@
 class OrderDetail < ApplicationRecord
-  belongs_to orde
+  belongs_to order
 end

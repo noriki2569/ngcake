@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
-  namespace :public do
-    get 'order/new'
-    get 'order/index'
-    get 'order/show'
-  end
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
@@ -16,6 +10,9 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     delete "cart_items/destroy_all" => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :update, :create, :destroy]
+    post "orders/confirm" => 'orders#confirm'
+    get "orders/complete" => 'orders#complete'
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do
