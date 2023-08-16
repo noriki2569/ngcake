@@ -54,4 +54,24 @@
       </table>
     </div>
   </div>
+
+  <div class ="row justify-content-left">
+    <font size="5">
+      <p>支払方法</p>
+    </font>
+    <font size="4">
+      <%= @order.payment_method %>
+    </font>
+  </div>
+
+  <div class="row justify-content-left">
+    <font size="5">
+      <p>お届け先</p>
+    </font>
+    <font size="4">
+      〒<%= @order.address %> <%= @order.postal_code %></br>
+       <%= @order.name %>
+    </font>
+  </div>
+
 </div>
