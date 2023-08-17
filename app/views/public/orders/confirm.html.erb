@@ -56,22 +56,33 @@
   </div>
 
   <div class ="row justify-content-left">
-    <font size="5">
+    <font size="5", class="col-2">
       <p>支払方法</p>
     </font>
-    <font size="4">
-      <%= @order.payment_method %>
+    <font size="4", class="col-3">
+      <%= @order.payment_method_i18n %>
     </font>
   </div>
 
   <div class="row justify-content-left">
-    <font size="5">
+    <font size="5", class="col-2">
       <p>お届け先</p>
     </font>
-    <font size="4">
+    <font size="4", class="col-3">
       〒<%= @order.address %> <%= @order.postal_code %></br>
        <%= @order.name %>
     </font>
   </div>
 
+  <div class="row justify-content-center">
+    <%= form_with model: @order, url: orders_path do |f| %>
+    <%= f.hidden_field :postage, value: @postage %>
+    <%= f.hidden_field :name, value: @order.name %>
+    <%= f.hidden_field :address, value: @order.address %>
+    <%= f.hidden_field :postal_code, value: @order.postal_code %>
+    <%= f.hidden_field :payment_method, value: @order.payment_method %>
+    <%= f.hidden_field :total_payment, value: @total_payment %>
+    <%= f.submit "注文を確定する", :class => "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
