@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-3">
-      <h3>ジャンル検索</h3>
-    </div>
-    <strong>商品一覧</strong>
+  <div class="row justify-content-left">
+    <font size="5">
+      <P>商品一覧</P>
+    </font>
+  </div>
+
+  <div class="row justify-content-center">
     <% @items.each do |item| %>
-    <div class="col-4">
+    <div class="col-md-4 offset-md-1">
       <%= link_to item_path(item.id) do %>
       <%= image_tag item.image, size: "150x150" %>
       <% end %></br>
@@ -13,5 +15,6 @@
       <%= item.price %>
     </div>
     <% end %>
+    <%= paginate @items %>
   </div>
 </div>

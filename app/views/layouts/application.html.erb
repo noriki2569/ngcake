@@ -26,9 +26,6 @@
                注文履歴一覧
            </li>
            <li>
-               ジャンル一覧
-           </li>
-           <li>
                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :class => "btn btn-outline-dark btn-xs" %>
            </li>
            <% elsif customer_signed_in? %>

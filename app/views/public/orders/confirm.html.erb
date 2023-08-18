@@ -20,7 +20,10 @@
           <% total=0 %>
           <% @cart_item.each do |cart_item| %>
           <tr>
-             <td><%= cart_item.item.name %></td>
+             <td>
+               <%= image_tag cart_item.item.image, size: "50x50" %>
+               <%= cart_item.item.name %>
+             </td>
              <td><%= cart_item.item.tax_price.to_s(:delimited) %></td>
              <td>
                <%= cart_item.amount %>

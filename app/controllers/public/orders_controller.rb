@@ -34,11 +34,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @order = current_customer.orders
+    @order = current_customer.order
     @cart_item = current_customer.cart_items.all
   end
 
-  def show  
+  def show
   end
 
   private
