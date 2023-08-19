@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @order.each do |order| %>
+        <% @orders.each do |order| %>
         <tr>
           <td>
             <%= order.created_at %>
@@ -23,7 +23,7 @@
           <td>
             <%= order.name %>
           </td>
-          <% order.oder_details.each do |order_detail| %>
+          <% order.order_details.each do |order_detail| %>
           <% @count += order_detail.quantity %>
           <% end %>
           <td>

@@ -7,10 +7,15 @@
 
   <div class="row justify-content-center">
     <% @items.each do |item| %>
-    <div class="col-md-4 offset-md-1">
+    <div class="col-md-3">
       <%= link_to item_path(item.id) do %>
+      <% if item.image.attached? %>
       <%= image_tag item.image, size: "150x150" %>
+      <% else %>
+      <%= image_tag 'no-image', size: "150x150" %>
+      <% end %>
       <% end %></br>
+
       <%= item.name %></br>
       <%= item.price %>
     </div>

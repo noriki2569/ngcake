@@ -19,6 +19,7 @@ Rails.application.routes.draw do
      root to: 'homes#top'
      resources :items, only: [:index, :new, :create, :show, :edit, :update]
      resources :customers, only: [:index, :show, :edit, :update]
+     resources :orders, only: [:show]
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
